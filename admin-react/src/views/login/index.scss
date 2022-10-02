@@ -1,0 +1,30 @@
+.login {
+    // width: 300px;
+    // height: 200px;
+    background-color: rgb(173, 173, 205);
+    padding: 50px 20px;
+
+}
+
+.login-outer {
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+}
+
+.login-title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub {
+    display: flex;
+    justify-content: space-around;
+}
