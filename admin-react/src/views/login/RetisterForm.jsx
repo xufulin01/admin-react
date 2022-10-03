@@ -1,8 +1,15 @@
+/**
+ * 注册页面
+ */
 import React, { useEffect } from "react";
 import "./index.scss";
 import { Button, Form, Input, message } from "antd";
 import { retisterService } from '../../service/loginService'
 export const RetisterFrom = (props) => {
+    /**
+     * 注册按钮
+     * @param {values} values 
+     */
     const onFinish = (values) => {
         console.log("Success:", values);
         retisterService({ username: values.username, password: values.password }).then(res => {
@@ -21,6 +28,10 @@ export const RetisterFrom = (props) => {
     const onFinishFailed = (errorInfo) => {
         console.log("Failed:", errorInfo);
     };
+    /**
+     * 
+     * 点击切换登录页面
+     */
     const handlelinkClick = () => {
         console.log("登陆");
         props.handelState();

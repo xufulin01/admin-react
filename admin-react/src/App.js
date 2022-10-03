@@ -1,13 +1,14 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
 import { Login } from "./views/login/index";
-import { Info } from "./views/info/index";
+import { Layouts } from "./views/layout/index";
+import { PerRoute } from "../src/perRouter/index";
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Login />}></Route>
-      <Route path="/info" element={<Info />}></Route>
-    </Routes>
+    <Switch>
+      <Route path="/" exact render={() => <Login />}></Route>
+      <PerRoute component={Layouts} path="/home"></PerRoute>
+    </Switch>
   );
 };
 export default App;

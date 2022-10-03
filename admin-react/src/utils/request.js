@@ -2,14 +2,14 @@ import axios from "axios";
 // 拦截器
 // 创建实例
 const service = axios.create({
-  baseURL: "/test",
+  baseURL: process.env.REACT_APP_API,
   timeout: 5000,
 });
 // 请求拦截
 service.interceptors.request.use(
   function (config) {
     // 发送请求之前的处理
-    console.log(config);
+    console.log(process.env.REACT_APP_API);
     return config;
   },
   function (error) {

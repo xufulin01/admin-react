@@ -1,15 +1,24 @@
+/***
+ * 登录页面
+ */
 import React, { useEffect } from "react";
 import "./index.scss";
 import { Button, Form, Input, message } from "antd";
-import { loginService } from '../../service/loginService'
+import { loginService } from '../../service/loginService';
+import { useHistory } from "react-router-dom";
+import { setToken } from "../../utils/sessions";
 export const LoginForm = (props) => {
-
+    const history = useHistory()
+    /***
+     * 提交按钮
+     */
     const onFinish = (values) => {
         console.log('Success:', values);
         loginService({ username: values.username, password: values.password }).then(res => {
-            console.log(res, 9999999999999999);
             if (res.data.result === true) {
+                setToken(res.data.data)
                 message.success("登录成功")
+                history.push("/home")
             } else {
                 message.error("账号或者密码有误")
             }
@@ -22,6 +31,9 @@ export const LoginForm = (props) => {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+    /***
+     * 点击切换注册
+     */
     const handlelinkClick = () => {
         console.log("注册账号");
         props.handelState()
