@@ -4,9 +4,9 @@
 import React, { useEffect } from "react";
 import "./index.scss";
 import { Button, Form, Input, message } from "antd";
-import { loginService } from '../../service/loginService';
+import { loginService } from '@api/loginService';
 import { useHistory } from "react-router-dom";
-import { setToken } from "../../utils/sessions";
+import { setToken, setUser, setTokenTime } from "@/utils/tokens";
 export const LoginForm = (props) => {
     const history = useHistory()
     /***
@@ -15,8 +15,10 @@ export const LoginForm = (props) => {
     const onFinish = (values) => {
         console.log('Success:', values);
         loginService({ username: values.username, password: values.password }).then(res => {
-            if (res.data.result === true) {
-                setToken(res.data.data)
+            if (res.result === true) {
+                setToken(res.data)
+                setUser(values.username)
+                setTokenTime()
                 message.success("登录成功")
                 history.push("/home")
             } else {

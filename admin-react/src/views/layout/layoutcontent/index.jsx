@@ -5,11 +5,11 @@
 
 import React from "react";
 import { Switch } from "react-router-dom";
-import { PerRoute } from "../../../perRouter";
+import { PerRoute } from "@/perRouter";
 /**
  * 工程自动化引入路由组件
  */
-import { routerList } from "../../../utils/methods"
+import { routerList } from "@/utils/methods"
 export const LayOutContent = () => {
     return (
         /**

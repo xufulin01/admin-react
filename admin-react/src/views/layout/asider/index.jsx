@@ -7,13 +7,13 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Menu, Layout } from 'antd';
 import "../index.scss";
-import { RouterMenuItem } from '../../router/router';
-import { setParamsMethod } from "../../../utils/methods";
+import { RouterMenuItem } from '@v/router/router';
+import { setParamsMethod } from "@/utils/methods";
 export const Asider = () => {
     const { Sider } = Layout;
     const history = useHistory()
     const [openKeys, setOpenKeys] = useState();
-    const [selectedKeys, setSelectedKeys] = useState()
+    const [selectedKeys, setSelectedKeys] = useState(['/home/network'])
     useEffect(() => {
         setOpenKeys([setParamsMethod(history.location.pathname)])
         setSelectedKeys([history.location.pathname])

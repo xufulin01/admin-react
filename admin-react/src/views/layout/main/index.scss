@@ -1,0 +1,28 @@
+.layout-header {
+    .sign-out {
+        position: relative;
+
+        div {
+            position: absolute;
+            right: 0;
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+
+            em {
+                position: absolute;
+                top: 64px;
+                left: 20px;
+                width: 60px;
+                height: 30px;
+                background-color: #fff;
+                line-height: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.ant-layout-header {
+    padding: 0;
+}

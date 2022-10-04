@@ -4,7 +4,7 @@
 import React, { useEffect } from "react";
 import "./index.scss";
 import { Button, Form, Input, message } from "antd";
-import { retisterService } from '../../service/loginService'
+import { retisterService } from '@api/loginService'
 export const RetisterFrom = (props) => {
     /**
      * 注册按钮
@@ -13,8 +13,7 @@ export const RetisterFrom = (props) => {
     const onFinish = (values) => {
         console.log("Success:", values);
         retisterService({ username: values.username, password: values.password }).then(res => {
-            console.log(res.data, 88888888);
-            if (res.data.resulte) {
+            if (res.resulte) {
                 message.success("注册成功")
             } else {
                 message.error("注册失败")

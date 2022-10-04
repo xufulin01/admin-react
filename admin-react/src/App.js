@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Router } from "react-router-dom";
-import { Login } from "./views/login/index";
-import { Layouts } from "./views/layout/index";
-import { PerRoute } from "../src/perRouter/index";
+import { Login } from "@v/login/index";
+import { Layouts } from "@v/layout/index";
+import { PerRoute } from "@/perRouter/index";
 const App = () => {
   return (
     <Switch>
