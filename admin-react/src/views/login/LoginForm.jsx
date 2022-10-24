@@ -13,7 +13,6 @@ export const LoginForm = (props) => {
      * 提交按钮
      */
     const onFinish = (values) => {
-        console.log('Success:', values);
         loginService({ username: values.username, password: values.password }).then(res => {
             if (res.result === true) {
                 setToken(res.data)
@@ -26,20 +25,15 @@ export const LoginForm = (props) => {
             }
         }).catch((err) => {
             message.error("接口调用失败")
-            console.log(err);
         })
     };
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+
     /***
      * 点击切换注册
      */
     const handlelinkClick = () => {
-        console.log("注册账号");
         props.handelState()
-        console.log(props);
     }
 
     return (
@@ -55,7 +49,6 @@ export const LoginForm = (props) => {
                 <Form
                     name="basic"
                     onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
                 >
                     <Form.Item
                         name="username"

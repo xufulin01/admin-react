@@ -6,8 +6,14 @@ import React, { useEffect, useState } from "react";
 import { Button, message, Form, Input } from 'antd';
 import './index.scss'
 import { additionService } from '@api/department';
+/**引入redux的store实例，获取状态 */
+import store from "@v/store";
 export const Addition = () => {
-
+    // 获取部门的redux管理的数据
+    const { department } = store.getState().departmentReducer;
+    useEffect(() => {
+        console.log(department);
+    }, [])
     /**
      * 创建部门
      * @param {values} values 

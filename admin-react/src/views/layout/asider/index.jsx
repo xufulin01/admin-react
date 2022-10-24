@@ -16,7 +16,7 @@ export const Asider = () => {
     const [selectedKeys, setSelectedKeys] = useState(['/home/network'])
     useEffect(() => {
         setOpenKeys([setParamsMethod(history.location.pathname)])
-        setSelectedKeys([history.location.pathname])
+        setSelectedKeys([history.location.pathname ? history.location.pathname : '/home/network'])
     }, [])
     /**
      * 左侧导航点击事件
@@ -34,7 +34,8 @@ export const Asider = () => {
         <Sider className="layout-sider">
             <h1 className="logo">
                 <span>
-                    <img src="https://i.postimg.cc/W33CYm3B/logo1.png" alt="" />
+                    {/* <img src="https://i.postimg.cc/W33CYm3B/logo1.png" alt="" /> */}
+                    <img src="" alt="" />
                 </span>
             </h1>
             <Menu

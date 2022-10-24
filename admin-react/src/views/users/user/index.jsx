@@ -3,10 +3,10 @@
  */
 
 import React from "react";
-
+import store from "@v/store";
 export const User = () => {
 
     return (
-        <>User 用户中心</>
+        <>{store.getState().userReducer.user}</>
     );
 };

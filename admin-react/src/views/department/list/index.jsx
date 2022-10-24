@@ -84,7 +84,6 @@ export const List = () => {
      */
     const getList = (params) => {
         departmentListService(params).then((res) => {
-            console.log(res.data);
             setDataSource(res.data);
         });
     };
@@ -136,14 +135,12 @@ export const List = () => {
         }).catch(err => {
             message.error("删除失败")
         })
-        console.log(recode);
     };
     /**
      * 搜索Form数据提交
      * @param {value} value
      */
     const onFinish = (value) => {
-        console.log(value);
         getList(value)
     };
     /**

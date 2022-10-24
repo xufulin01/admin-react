@@ -11,7 +11,6 @@ export const RetisterFrom = (props) => {
      * @param {values} values 
      */
     const onFinish = (values) => {
-        console.log("Success:", values);
         retisterService({ username: values.username, password: values.password }).then(res => {
             if (res.resulte) {
                 message.success("注册成功")
@@ -24,15 +23,12 @@ export const RetisterFrom = (props) => {
         })
     };
 
-    const onFinishFailed = (errorInfo) => {
-        console.log("Failed:", errorInfo);
-    };
+
     /**
      * 
      * 点击切换登录页面
      */
     const handlelinkClick = () => {
-        console.log("登陆");
         props.handelState();
     };
 
@@ -48,7 +44,6 @@ export const RetisterFrom = (props) => {
                 <Form
                     name="basic"
                     onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
                 >
                     <Form.Item
                         name="username"

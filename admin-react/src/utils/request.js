@@ -6,7 +6,7 @@ import { getToken } from "./tokens";
  */
 const service = axios.create({
   baseURL: process.env.REACT_APP_API, //环境变量。在根目录的.env文件
-  timeout: 5000,
+  timeout: 5000, //设置超时时间
 });
 /**
  * 请求拦截，设置请求头的地方，给服务端传输token
@@ -15,7 +15,8 @@ service.interceptors.request.use(
   function (config) {
     // 请求头传输token
     config.headers["Token"] = getToken();
-    console.log(process.env.REACT_APP_API);
+    // 环境变量的打印
+    // console.log(process.env.REACT_APP_API);
     return config;
   },
   function (error) {

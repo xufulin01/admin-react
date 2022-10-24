@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { PerRoute } from "@/perRouter";
 /**
  * 工程自动化引入路由组件
@@ -16,6 +16,11 @@ export const LayOutContent = () => {
          * 渲染路由信息
          */
         <Switch>
+            <Route
+                path="/home"
+                exact
+                render={() => <Redirect to="/home/network" />}
+            ></Route>
             {
                 routerList && routerList.map(item => {
                     return <PerRoute path={item.path} key={item.path} exact component={item.component}></PerRoute>
