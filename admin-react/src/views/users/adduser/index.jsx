@@ -4,25 +4,26 @@
 
 import React, { useEffect, useState } from "react";
 import store from "@v/store";
-import { Button, Input } from "antd";
+import { Button, Input, Table } from "antd";
 import { dispatchMethods } from '@v/store/reducer/user'
 export const Adduser = () => {
 
     const { getState, dispatch } = store;
     const [changeValue, setChangeValue] = useState();
-    const [value, setValue] = useState()
+    const [value, setValue] = useState(getState().userReducer.user)
     useEffect(() => {
         console.log(getState().userReducer);
 
-    }, [])
-    store.subscribe(() => {
-        setValue(getState())
-    })
+    }, [getState().userReducer.user])
+    // store.subscribe(() => {
+    //     setValue(getState())
+    // })
     const handleClick = () => {
         dispatch({
             type: dispatchMethods.CHANGE_VALUE,
             payload: changeValue
         })
+        setValue(getState().userReducer.user)
     }
     const handleChnage = (e) => {
 
@@ -35,8 +36,10 @@ export const Adduser = () => {
                 <Button type="primary" onClick={handleClick}>改变</Button>
 
             </div>
-            <p>{getState().userReducer.user}</p>
+            <p>{value}</p>
             {/* <p>{value}</p> */}
+            {/* <Table rowKey={"id"} bordered columns={columns} dataSource={dataSource}></Table> */}
+
         </>
     );
 };
